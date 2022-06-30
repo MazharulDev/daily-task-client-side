@@ -11,7 +11,24 @@ const Task = () => {
     }
     const handleSubmit = e => {
         e.preventDefault();
-        console.log(title, details);
+        const taskList = {
+            title: title,
+            details: details
+        }
+        fetch('http://localhost:5000/task', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(taskList)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                e.target.title.value = ''
+                e.target.details.value = ''
+
+            })
     }
     return (
         <div className='pl-10'>
