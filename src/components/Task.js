@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { BiEdit } from 'react-icons/bi'
 
 const Task = () => {
     const [title, setTitle] = useState('')
@@ -35,7 +36,10 @@ const Task = () => {
             <div class="collapse">
                 <input type="checkbox" />
                 <div class="collapse-title text-xl font-medium">
-                    Add a task
+                    <div className='flex items-center gap-3 text-blue-600'>
+                        <BiEdit />
+                        Add a task
+                    </div>
                 </div>
                 <div class="collapse-content">
                     <form onSubmit={handleSubmit}>
