@@ -16,7 +16,7 @@ const Task = () => {
             title: title,
             details: details
         }
-        fetch('http://localhost:5000/task', {
+        fetch('https://fathomless-forest-06716.herokuapp.com/task', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -25,7 +25,6 @@ const Task = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 e.target.title.value = ''
                 e.target.details.value = ''
 
@@ -33,15 +32,15 @@ const Task = () => {
     }
     return (
         <div className='pl-10'>
-            <div class="collapse">
+            <div className="collapse">
                 <input type="checkbox" />
-                <div class="collapse-title text-xl font-medium">
+                <div className="collapse-title text-xl font-medium">
                     <div className='flex items-center gap-3 text-blue-600'>
                         <BiEdit />
                         Add a task
                     </div>
                 </div>
-                <div class="collapse-content">
+                <div className="collapse-content">
                     <form onSubmit={handleSubmit}>
                         <input onChange={handleTitleChange} className='p-2 outline-0 focus:border-b-2 focus:border-slate-500 mt-3' type="text" name="title" placeholder='Title' /> <br />
                         <input onChange={handleDetailsChange} className='p-2 outline-0 focus:border-b-2 focus:border-slate-500 mt-3' type="text" name="details" placeholder='Details' />

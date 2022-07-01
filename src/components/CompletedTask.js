@@ -4,13 +4,13 @@ import { TiTick } from 'react-icons/ti'
 import { useQuery } from 'react-query';
 
 const CompletedTask = () => {
-    const { data: completed, isLoading, refetch } = useQuery('completed', () => fetch('http://localhost:5000/complete', {
+    const { data: completed, isLoading, refetch } = useQuery('completed', () => fetch('https://fathomless-forest-06716.herokuapp.com/complete', {
         method: 'GET',
     })
         .then(res => res.json()))
     refetch()
     if (isLoading) {
-        return <div className='flex justify-center mt-5'><button class="btn btn-square loading"></button></div>
+        return <div className='flex justify-center mt-5'><button className="btn btn-square loading"></button></div>
     }
     return (
         <div>
@@ -21,7 +21,7 @@ const CompletedTask = () => {
 
                     {
                         completed.map(complete =>
-                            <div>
+                            <div key={complete._id}>
                                 <div className='flex items-center gap-3 pl-10'>
                                     <TiTick />
                                     <del className=''>{complete.title}</del>

@@ -9,7 +9,7 @@ const EditModal = ({ open }) => {
             title: title,
             details: details
         }
-        fetch(`http://localhost:5000/task/${open._id}`, {
+        fetch(`https://fathomless-forest-06716.herokuapp.com/task/${open._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -24,9 +24,9 @@ const EditModal = ({ open }) => {
     }
     return (
         <div>
-            <input type="checkbox" id="Edit-modal" class="modal-toggle" />
-            <div class="modal modal-bottom sm:modal-middle">
-                <div class="modal-box">
+            <input type="checkbox" id="Edit-modal" className="modal-toggle" />
+            <div className="modal modal-bottom sm:modal-middle">
+                <div className="modal-box">
                     <form onSubmit={handleSubmit}>
                         <input className='p-2 outline-0 focus:border-b-2 focus:border-slate-500 mt-3' type="text" name="title" placeholder='Title' /> <br />
                         <input className='p-2 outline-0 focus:border-b-2 focus:border-slate-500 mt-3' type="text" name="details" placeholder='Details' />

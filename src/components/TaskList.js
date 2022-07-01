@@ -3,13 +3,13 @@ import { useQuery } from 'react-query'
 
 const TaskList = () => {
     const [edit, setEdit] = useState({})
-    const { data: taskList, isLoading, refetch } = useQuery('taskList', () => fetch('http://localhost:5000/task', {
+    const { data: taskList, isLoading, refetch } = useQuery('taskList', () => fetch('https://fathomless-forest-06716.herokuapp.com/task', {
         method: 'GET',
     })
         .then(res => res.json()))
     refetch()
     if (isLoading) {
-        return <div className='flex justify-center mt-5'><button class="btn btn-square loading"></button></div>
+        return <div className='flex justify-center mt-5'><button className="btn btn-square loading"></button></div>
     }
     const handleDelete = id => {
         const task = {
@@ -17,7 +17,7 @@ const TaskList = () => {
             title: id.title,
             details: id.details
         }
-        fetch(`http://localhost:5000/complete`, {
+        fetch(`https://fathomless-forest-06716.herokuapp.com/complete`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -26,7 +26,7 @@ const TaskList = () => {
         })
             .then(res => res.json())
             .then(data => {
-                const url = `http://localhost:5000/task/${id._id}`
+                const url = `https://fathomless-forest-06716.herokuapp.com/task/${id._id}`
                 fetch(url, {
                     method: 'DELETE',
                 })
@@ -45,7 +45,7 @@ const TaskList = () => {
             title: title,
             details: details
         }
-        fetch(`http://localhost:5000/task/${edit}`, {
+        fetch(`https://fathomless-forest-06716.herokuapp.com/task/${edit}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -67,18 +67,18 @@ const TaskList = () => {
                     <div key={task._id} className='pl-10 p-2'>
                         <div className='flex items-center gap-4'>
 
-                            <input onClick={() => handleDelete(task)} type="checkbox" class="checkbox-xs" />
+                            <input onClick={() => handleDelete(task)} type="checkbox" className="checkbox-xs" />
 
-                            <div onClick={() => setEdit(task._id)} class="collapse">
+                            <div onClick={() => setEdit(task._id)} className="collapse">
                                 <input type="checkbox" />
-                                <div class="collapse-title text-xl font-medium">
+                                <div className="collapse-title text-xl font-medium">
                                     <div>
 
                                         <h2 className='font-bold'>{task.title}</h2>
                                     </div>
                                 </div>
                                 <p className='ml-8'>{task.details}</p>
-                                <div class="collapse-content">
+                                <div className="collapse-content">
                                     <form onSubmit={handleSubmit}>
                                         <input className='p-2 outline-0 focus:border-b-2 focus:border-slate-500 mt-3' type="text" name="title" placeholder='Title' /> <br />
                                         <input className='p-2 outline-0 focus:border-b-2 focus:border-slate-500 mt-3' type="text" name="details" placeholder='Details' />
