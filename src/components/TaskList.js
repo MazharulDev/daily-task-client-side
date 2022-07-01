@@ -61,7 +61,7 @@ const TaskList = () => {
 
 
     return (
-        <div>
+        <div className='min-h-screen'>
             {
                 taskList.map(task =>
                     <div key={task._id} className='pl-10 p-2'>
@@ -80,8 +80,8 @@ const TaskList = () => {
                                 <p className='ml-8'>{task.details}</p>
                                 <div className="collapse-content">
                                     <form onSubmit={handleSubmit}>
-                                        <input className='p-2 outline-0 focus:border-b-2 focus:border-slate-500 mt-3' type="text" name="title" placeholder='Title' /> <br />
-                                        <input className='p-2 outline-0 focus:border-b-2 focus:border-slate-500 mt-3' type="text" name="details" placeholder='Details' />
+                                        <input className='p-2 outline-0 focus:border-b-2 focus:border-slate-500 mt-3' type="text" name="title" placeholder='Edit Title' /> <br />
+                                        <input className='p-2 outline-0 focus:border-b-2 focus:border-slate-500 mt-3' type="text" name="details" placeholder='Edit Details' />
                                         <input type="submit" value="" />
                                     </form>
                                 </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './Header';
 import { TiTick } from 'react-icons/ti'
 import { useQuery } from 'react-query';
+import Footer from './Footer';
 
 const CompletedTask = () => {
     const { data: completed, isLoading, refetch } = useQuery('completed', () => fetch('https://fathomless-forest-06716.herokuapp.com/complete', {
@@ -35,6 +36,7 @@ const CompletedTask = () => {
 
                 </div>
             </div>
+            <Footer />
         </div>
     );
 };
