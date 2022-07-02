@@ -61,7 +61,7 @@ const TaskList = () => {
 
 
     return (
-        <div className='min-h-screen'>
+        <div>
             {
                 taskList.map(task =>
                     <div key={task._id} className='pl-10 p-2'>
