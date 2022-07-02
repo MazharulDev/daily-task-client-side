@@ -1,0 +1,13 @@
+.delText{
+    cursor: pointer;
+    height: 20px;
+}
+
+.deleteBtn{
+    display: none;
+}
+.delText:hover .deleteBtn{
+    display: block;
+    color: brown;
+    
+}
